@@ -10,13 +10,13 @@ fixture`Getting started`
 
 
 
-test('Update existing project', async t => {
+test('Add project local counsel', async t => {
 
     // Login component
     await login();
 
     // SEARCH PROJECT
-    await TextField('textBox_searchText', 'Test Project 1'); // set the search field
+    await TextField(homePage.search.target, homePage.search.text); // set the search field
     await Button('actionButton_Search'); // click search button
     await ListItem('listView_myprojects', 1); // select first item in the list of results
 
