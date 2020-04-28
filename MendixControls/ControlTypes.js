@@ -24,7 +24,7 @@ export const RadioButton = async (name, value, wait = 100) => {
 }
 // BUTTON
 //
-export const Button = async (name, value, wait = 100) => {
+export const Button = async (name, wait = 100) => {
     const element = Selector(`.mx-name-${name}`)
     await t.click(element)
         .wait(wait);
