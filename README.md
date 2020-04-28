@@ -18,7 +18,7 @@
 - Radiobutton *value* should be the enum value set in the Mx app, not the display value that user sees on the page.
 - LisItem will select the first record in the list if no *index* was specified. Set the *index* to select the nth item in the list. 
 
-## Eaxamples
+## Examples
 To select an option in a dropdown menu, instead of this
 ```
     const _dropdown = Selector('.mx-name-Dropdown_Colour select')
