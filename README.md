@@ -28,7 +28,7 @@ To select an option in a dropdown menu, instead of this
 ```
 use this
 ```javascript
-    await selectDropdown('Dropdown_Colour', 'Green')
+    await mx.selectDropdown('Dropdown_Colour', 'Green')
 ```
 ***More documentation coming soon...***
 
