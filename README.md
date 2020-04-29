@@ -2,13 +2,13 @@
 
 **Supported Mendix controls**
 ```
-    - TextField(name, value, wait = 100)
-    - TextArea(name, value, wait = 100)
-    - RadioButton(name, value, wait = 100)
-    - Dropdown(name, value, wait = 100)
-    - Button(name, wait = 100)
-    - ListItem(name, index = 1, wait = 100)
-    - GridItem(name, value, wait = 100)
+    - setTextField(name, value, wait = 100)
+    - setTextArea(name, value, wait = 100)
+    - selectRadioButton(name, value, wait = 100)
+    - selectDropdown(name, value, wait = 100)
+    - selectButton(name, wait = 100)
+    - selectListItem(name, index = 1, wait = 100)
+    - selectGridItem(name, value, wait = 100)
 ```
 
 **Special considerations**
