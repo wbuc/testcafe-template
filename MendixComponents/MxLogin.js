@@ -9,6 +9,5 @@ export const login = async () => {
         .typeText(loginDetail.username.target, loginDetail.username.text)
         .typeText(loginDetail.password.target, loginDetail.password.text)
         .click(loginDetail.action)
-        .wait(2000)
 
 }
