@@ -4,3 +4,7 @@ export const loginDetail = {
     password: { target: '#passwordInput', text: '1' },
     action: '#loginButton'
 }
+
+export const MxSelectors = {
+
+}

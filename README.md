@@ -20,7 +20,7 @@
 
 ## Examples
 To select an option in a dropdown menu, instead of this
-```
+```javascript
     const _dropdown = Selector('.mx-name-Dropdown_Colour select')
     const _options = _dropdown.find('option')
 
@@ -28,8 +28,8 @@ To select an option in a dropdown menu, instead of this
         .click(_options.withText('Green'))
 ```
 use this
-```
-    await Dropdown('Dropdown_Colour', 'Green')
+```javascript
+    await selectDropdown('Dropdown_Colour', 'Green')
 ```
 ***More documentation coming soon...***
 

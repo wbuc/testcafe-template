@@ -1,6 +1,6 @@
 
 import { Selector } from 'testcafe';
-import { TextField, TextArea, RadioButton, Dropdown, Button, ListItem, GridItem } from './MendixControls/ControlTypes.js'
+import { setTextField, setTextArea, selectRadioButton, selectDropdown, selectButton, selectListItem, selectGridItem } from './MendixControls/ControlTypes.js'
 
 import { login } from './MendixComponents/MxLogin.js'
 
@@ -12,31 +12,31 @@ fixture`Getting started`
 
 test('Update existing project', async t => {
 
-    // Login component
+    // LOGIN
     await login();
 
     // SEARCH PROJECT
-    await TextField('textBox_searchText', 'Test Project 1'); // set the search field
-    await Button('actionButton_Search'); // click search button
-    await ListItem('listView_myprojects', 1); // select first item in the list of results
+    await setTextField('textBox_searchText', 'Test Project 1'); // set the search field
+    await selectButton('actionButton_Search'); // click search button
+    await selectListItem('listView_myprojects', 1); // select first item in the list of results
 
     // UPDATE DETAIL
-    await RadioButton('radioButtons_status', 'Active') // set Status radio button to active
-    await TextArea('textArea_factualInformation', 'Sample text area text') // enter text for factual information
-    await RadioButton('radioButtons_confidential', 'true') // set confidential radio to true
-    await Dropdown('referenceSelector_category', 'Category 2')
-    await Dropdown('referenceSelector_Client', 'Client 4', 1000)
+    await selectRadioButton('radioButtons_status', 'Active') // set Status radio button to active
+    await setTextArea('textArea_factualInformation', 'Sample text area text') // enter text for factual information
+    await selectRadioButton('radioButtons_confidential', 'true') // set confidential radio to true
+    await selectDropdown('referenceSelector_category', 'Category 2')
+    await selectDropdown('referenceSelector_Client', 'Client 4', 1000)
 
     // ADD LOCAL COUNSEL
-    await ListItem('listView_Project_Jurisdiction', 4, 1000)
-    await Button('actionButton_Add_LocalCounsel')
-    await GridItem('grid_Select_Local_Counsel', 'Uk 4')
-    await Button('select_Jurisdiction');
+    await selectListItem('listView_Project_Jurisdiction', 4, 1000)
+    await selectButton('actionButton_Add_LocalCounsel')
+    await selectGridItem('grid_Select_Local_Counsel', 'Uk 4')
+    await selectButton('select_Jurisdiction');
 
 
     await t.wait(2000);
 
     // SAVE PROJECT
-    await Button('actionButton_saveProject') // save project
+    await selectButton('actionButton_saveProject') // save project
 })
 
