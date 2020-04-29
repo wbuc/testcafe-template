@@ -5,6 +5,3 @@ export const loginDetail = {
     action: '#loginButton'
 }
 
-export const MxSelectors = {
-
-}
