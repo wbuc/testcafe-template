@@ -2,7 +2,7 @@
 
 **Supported Mendix controls**
 ```
-    - setTextField(name, value, { before:'' } = null)
+    - setTextBox(name, value, { before:'' } = null)
     - setTextArea(name, value, { before:'' } = null)
     - selectRadioButton(name, value)
     - selectDropdown(name, value)
