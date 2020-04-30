@@ -5,3 +5,5 @@ export const loginDetail = {
     action: '#loginButton'
 }
 
+
+

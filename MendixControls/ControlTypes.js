@@ -1,13 +1,44 @@
 import { t, Selector } from "testcafe";
 
-
 const MxSelector = '.mx-name-'
 
+const controlTypes = {
+    textbox: 'textbox',
+    textarea: 'textarea',
+    dropdown: 'dropdown',
+    radiobutton: 'radiobutton',
+    button: 'button',
+    listitem: 'listitem',
+    griditem: 'griditem'
+}
+
+const controlRepository = {};
+
+const expectEqual = async (name, value, message = '') => {
+    const currentControl = controlRepository[name]
+    const assertMessage = `${name + (message ? ' : ' + message : ' ')}`;
+
+    if (currentControl.type === controlTypes.textbox) {
+        await t.expect(currentControl.element.value).eql(value, assertMessage);
+    }
+    if (currentControl.type === controlTypes.textarea) {
+        await t.expect(currentControl.element.value).eql(value, assertMessage);
+    }
+
+}
+
+const expectContains = async () => {
+    const currentControl = controlRepository[name]
+    const assertMessage = `${name + (message ? ' : ' + message : ' ')}`;
+}
 
 // TEXTFIELD
 //
 const setTextBox = async (name, value, condition = null) => {
     const element = Selector(`${MxSelector + name} input`)
+
+    // set the repo so that this control can be used later with asserts.
+    controlRepository[name] = { type: controlTypes.textbox, element: element };
 
     if (value === '') {
         await t.click(element)
@@ -62,14 +93,14 @@ const selectRadioButton = async (name, value, condition = null) => {
 // BUTTON
 //
 const selectButton = async (name, wait = 0) => {
-    const element = Selector(`${MxSelector + name}`)
+    const element = Selector(`${MxSelector + name} `)
     await t.click(element)
         .wait(wait);
 }
 // LIST ITEM
 //
 const selectListItem = async (name, index = 1) => {
-    await t.click(`${MxSelector + name} li:nth-child(${index})`)
+    await t.click(`${MxSelector + name} li: nth - child(${index})`)
 
 }
 // GRID ITEM
@@ -90,7 +121,6 @@ const selectDropdown = async (name, value) => {
         .click(_ddOption.withText(value))
 }
 
-
 export default {
     setTextBox,
     setTextArea,
@@ -98,5 +128,7 @@ export default {
     selectDropdown,
     selectButton,
     selectListItem,
-    selectGridItem
+    selectGridItem,
+    expectEqual,
+    expectContains
 }
