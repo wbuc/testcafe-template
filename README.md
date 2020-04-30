@@ -42,7 +42,7 @@ To set and test a field value, instead of this
 ```
 use this
 ```javascript
-    await mx.setTextBox('textBox_name', 'Benny'); // set the search field
+    await mx.setTextBox('textBox_name', 'Benny'); 
     await mx.expectEqual('textBox_name', 'Benny');
 ```
 
