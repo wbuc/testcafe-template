@@ -12,7 +12,7 @@ test('Update Project detail', async t => {
     await login();
 
     // SEARCH PROJECT
-    await mx.setTextField('textBox_searchText', 'Example Project 1'); // set the search field
+    await mx.setTextBox('textBox_searchText', 'Example Project 1'); // set the search field
     await mx.selectButton('actionButton_Search'); // click search button
     await mx.selectListItem('listView_myprojects', 1); // select first item in the list of results
 

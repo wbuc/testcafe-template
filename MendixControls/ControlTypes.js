@@ -6,7 +6,7 @@ const MxSelector = '.mx-name-'
 
 // TEXTFIELD
 //
-const setTextField = async (name, value, condition = null) => {
+const setTextBox = async (name, value, condition = null) => {
     const element = Selector(`${MxSelector + name} input`)
 
     if (value === '') {
@@ -92,7 +92,7 @@ const selectDropdown = async (name, value) => {
 
 
 export default {
-    setTextField,
+    setTextBox,
     setTextArea,
     selectRadioButton,
     selectDropdown,
