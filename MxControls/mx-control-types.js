@@ -26,12 +26,17 @@ const expectEqual = async (name, value, message = '') => {
     }
 
 }
-
 const expectContains = async () => {
     const currentControl = controlRepository[name]
     const assertMessage = `${name + (message ? ' : ' + message : ' ')}`;
 }
 
+
+// NAV LINK
+//
+const selectNavLink = async (index) => {
+    await t.click(`.navbar-nav>li:nth-child(${index})`);
+}
 // TEXTFIELD
 //
 const setTextBox = async (name, value, condition = null) => {
@@ -100,8 +105,7 @@ const selectButton = async (name, wait = 0) => {
 // LIST ITEM
 //
 const selectListItem = async (name, index = 1) => {
-    await t.click(`${MxSelector + name} li: nth - child(${index})`)
-
+    await t.click(`${MxSelector + name} li:nth-child(${index})`)
 }
 // GRID ITEM
 //
@@ -113,13 +117,20 @@ const selectGridItem = async (name, value) => {
 }
 // DROPDOWN 
 //
-const selectDropdown = async (name, value) => {
+const selectDropdown = async (name, value, wait = 0) => {
     const _dropdown = Selector(`${MxSelector + name} select`)
     const _ddOption = _dropdown.find('option')
 
     await t.click(_dropdown)
-        .click(_ddOption.withText(value))
+        .click(_ddOption.withText(value)).wait(wait);
 }
+// CONFIRM DIALOG
+//
+const confirmDialog = async () => {
+    const element = Selector(`.modal-dialog.mx-dialog .btn-primary`)
+    await t.click(element);
+}
+
 
 export default {
     setTextBox,
@@ -129,6 +140,8 @@ export default {
     selectButton,
     selectListItem,
     selectGridItem,
+    selectNavLink,
+    confirmDialog,
     expectEqual,
     expectContains
 }

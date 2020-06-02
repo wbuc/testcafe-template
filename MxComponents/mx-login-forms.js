@@ -1,7 +1,7 @@
 
 import { t } from 'testcafe';
 
-import { loginDetail } from '../config.js'
+import { loginDetail } from '../shared/presets.js'
 
 export const login = async () => {
 
